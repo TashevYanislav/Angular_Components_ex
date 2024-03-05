@@ -22,10 +22,11 @@ export class ArticleComponent {
     this.descToShow = '';
   }
   readMore(): void {
-    this.articleDescLen = this.symbols
+    this.articleDescLen += this.symbols
     if (this.articleDescLen >= this.articleDesc.length) {
       this.showHideBtn = true;
       this.showReadMoreBtn = false;
+      this.descToShow = this.articleDesc;
     } else {
       this.descToShow = this.articleDesc.substring(0, this.articleDescLen);
     }
