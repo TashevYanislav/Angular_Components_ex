@@ -7,31 +7,41 @@ import { UserItemComponent } from './user-item/user-item.component';
 import { Observable } from 'rxjs';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    UserListComponent,
-    UserItemComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [AppComponent, UserListComponent, UserItemComponent],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 
+Promise.resolve(100)
+  .then((data) => data * 40)
+  .then((data) => console.log(data));
 
-Promise.resolve(100).then(data=>data*40).then((data)=>console.log(data));
+const o = new Observable((observer) => {
+  observer.next(100);
+  observer.next(200);
+  observer.next(300);
+  observer.next(400);
+});
 
+o.subscribe((data) => {
+  console.log('from observable', data);
+});
 
-const o = new Observable((observer)=>{
-  observer.next(100)
-  observer.next(200)
-  observer.next(300)
-  observer.next(400)
-})
+const interval = (intervalValue: number) => {
+  const o = new Observable<number>((observer) => {
+    let counter = 0;
 
-o.subscribe((data)=>{
-  console.log("from observable",data);
-  
-})
+    const timer = setInterval(() => {
+      observer.next(counter++);
+    }, intervalValue);
+
+    return () => {
+      clearInterval(timer);
+    };
+  });
+  return o;
+};
+
+// interval(1000).subscribe((data) => console.log(data)); 
