@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserItemComponent } from './user-item/user-item.component';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @NgModule({
   declarations: [AppComponent, UserListComponent, UserItemComponent],
@@ -44,4 +44,12 @@ const interval = (intervalValue: number) => {
   return o;
 };
 
-// interval(1000).subscribe((data) => console.log(data)); 
+// interval(1000).subscribe((data) => console.log(data));
+
+// const stream$ = interval(20000).pipe(map((x) => x + 0.1));
+
+// stream$.subscribe({
+//   next: (data) => console.log(data),
+//   error: (error) => console.log('erorr:', error),
+//   complete: () => console.log('Stream Completed'),
+// });
