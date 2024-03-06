@@ -1,5 +1,5 @@
 <h2>{{title}}</h2>
-<app-user-list [users]="users"/>
+<app-user-list [users]="userService.users"/>
 
 <div>
     <label for="name">Name</label>
@@ -8,5 +8,5 @@
     <label for="age">Age</label>
     <input type="number" id="age" #inputAge>
  
-    <button (click)="addUser(inputName,inputAge)" >Add User</button>
+    <button (click)="userService.addUser(inputName,inputAge)" >Add User</button>
 </div>
