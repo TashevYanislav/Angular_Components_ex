@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { User } from './types/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
+  URL = 'https://jsonplaceholder.typicode.com/users';
 
   users: User[] = [
     {
@@ -24,13 +25,18 @@ export class UserService {
       age: 40,
     },
   ];
+
+  getUsers() {
+    return fetch(this.URL).then((res)=>res.json());
+  }
+
   addUser(inputName: HTMLInputElement, inputAge: HTMLInputElement) {
     const user: User = {
       name: inputName.value,
       age: Number(inputAge.value),
     };
     this.users.push(user);
-    inputName.value="";
-    inputAge.value="";
+    inputName.value = '';
+    inputAge.value = '';
   }
 }
