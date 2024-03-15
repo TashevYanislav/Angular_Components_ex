@@ -1,4 +1,12 @@
-<div class="btn">
-    Reload Users
-    <!-- <app-spinner/> -->
+<p>User List Works</p>
+
+<button (click)="fetchUsers()" [class.disabled]="isLoading">
+  Reload Users
+</button>
+<app-global-loader *ngIf="isLoading" />
+
+<div *ngIf="!isLoading">
+  <ul *ngFor="let user of users">
+    <li>User Name:{{ user.name }}, Lives in: {{ user.address.city }}</li>
+  </ul>
 </div>
