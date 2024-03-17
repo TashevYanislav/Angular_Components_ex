@@ -6,7 +6,13 @@
 <app-global-loader *ngIf="isLoading" />
 
 <div *ngIf="!isLoading">
-  <ul *ngFor="let user of users">
-    <li>User Name:{{ user.name }}, Lives in: {{ user.address.city }}</li>
+  <ul>
+    <li
+      *ngFor="let user of users"
+      class="item"
+      [routerLink]="['/user-list', 'details', user.id]"
+    >
+      User Name:{{ user.name }}, Lives in: {{ user.address.city }}
+    </li>
   </ul>
 </div>
