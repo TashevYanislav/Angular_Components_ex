@@ -9,6 +9,10 @@ import { MainComponent } from './main/main.component';
 import { ThemesListComponent } from './themes-list/themes-list.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { UserModule } from './user/user.module';
+import { UserRoutingModule } from './user/user-routing.module';
+import { ThemeModule } from './theme/theme.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     MainComponent,
     ThemesListComponent,
     PostsListComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
     CoreModule,
     SharedModule,
     HttpClientModule,
+    UserRoutingModule,
+    UserModule,
+    ThemeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
