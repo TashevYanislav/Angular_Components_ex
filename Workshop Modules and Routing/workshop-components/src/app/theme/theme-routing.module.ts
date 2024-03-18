@@ -3,15 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
 import { MainComponent } from './main/main.component';
 import { AddThemeComponent } from './add-theme/add-theme.component';
+import { CurrentThemeComponent } from './current-theme/current-theme.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: HomeComponent,
-  },
-  {
     path: 'themes',
-    component: MainComponent,
+    children: [
+      { path: '', pathMatch: 'full', component: MainComponent },
+      { path: ':themeId', component: CurrentThemeComponent },
+    ],
   },
   {
     path: 'new-theme',
