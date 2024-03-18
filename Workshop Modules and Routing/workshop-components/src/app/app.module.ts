@@ -14,6 +14,7 @@ import { UserModule } from './user/user.module';
 import { UserRoutingModule } from './user/user-routing.module';
 import { ThemeModule } from './theme/theme.module';
 import { ErrorComponent } from './error/error.component';
+import { WelcomeComponent } from './shared/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { ErrorComponent } from './error/error.component';
     UserRoutingModule,
     UserModule,
     ThemeModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
