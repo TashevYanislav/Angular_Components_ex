@@ -28,6 +28,7 @@ export class UserService {
       email: 'petko@abv.bg',
       password: '123123',
       phoneNumber: '088-888-8888',
+      id: '5fa64ca72183ce1728ff3726',
     };
     localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
   }
