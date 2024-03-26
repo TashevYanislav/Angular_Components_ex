@@ -1,10 +1,19 @@
-import { Directive, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostListener,
+  OnInit,
+  Renderer2,
+} from '@angular/core';
 
 @Directive({
   selector: '[appHighlight]',
 })
 export class HighlightDirective implements OnInit {
   constructor(private elRef: ElementRef, private renderer: Renderer2) {}
+  @HostListener('mouseover', ['$event']) mouseOverHandler(e: MouseEvent) {
+    // console.log('mouseOver', e);
+  }
 
   ngOnInit(): void {
     // this.renderer.setStyle(this.elRef.nativeElement, 'background', 'red');
@@ -22,11 +31,13 @@ export class HighlightDirective implements OnInit {
   }
 
   mouseEnteerHandler(e: MouseEvent): void {
-    console.log(e);
     this.renderer.setStyle(this.elRef.nativeElement, 'background-color', 'red');
   }
   mouseLeaverHandler(e: MouseEvent): void {
-    console.log(e);
-    this.renderer.setStyle(this.elRef.nativeElement, 'background-color', 'white');
+    this.renderer.setStyle(
+      this.elRef.nativeElement,
+      'background-color',
+      'white'
+    );
   }
 }
