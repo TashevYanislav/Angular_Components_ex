@@ -20,3 +20,9 @@ export interface AuthUser {
   password: string;
   id: string;
 }
+
+export interface profileDetails{
+  username: string;
+  email: string;
+  tel: string;
+}
