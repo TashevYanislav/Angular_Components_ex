@@ -5,17 +5,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { RouterModule } from '@angular/router';
 import { EmailDirective } from './validators/email.directive';
 
-
-
 @NgModule({
-  declarations: [
-    LoaderComponent,
-    WelcomeComponent,
-    EmailDirective
-  ],
-  imports: [
-    CommonModule,RouterModule
-  ],
-  exports:[LoaderComponent,WelcomeComponent,EmailDirective]
+  declarations: [LoaderComponent, WelcomeComponent, EmailDirective],
+  imports: [CommonModule, RouterModule],
+  exports: [LoaderComponent, WelcomeComponent, EmailDirective],
 })
-export class SharedModule { }
+export class SharedModule {}
