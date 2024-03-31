@@ -80,6 +80,7 @@
             formControlName="password"
           />
         </p>
+
         <!-- <p class="error">
           Password is required!
       </p>
@@ -100,7 +101,9 @@
             formControlName="rePassword"
           />
         </p>
-        <!-- <p class="error">Repeat Password does not match password!</p> -->
+        <ng-container *ngIf="form.get('passGroup')?.get('rePassword')?.touched">
+          <p class="error" *ngIf="form.get('passGroup')?.errors?.['matchPasswordsValidator']">Repeat Password does not match password!</p>
+        </ng-container>
       </ng-container>
 
       <button>Create Account</button>
