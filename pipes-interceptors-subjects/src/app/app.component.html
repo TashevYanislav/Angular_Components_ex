@@ -6,3 +6,13 @@
   {{ user.list | reduce : sum : 0 }}
 </div>
 <button (click)="addProperty()">Add property</button>
+
+<hr />
+<div>
+  <a routerLink="/">Home</a>
+</div>
+<div>
+  <a routerLink="/lazy">Lazy</a>
+</div>
+
+<router-outlet></router-outlet>
