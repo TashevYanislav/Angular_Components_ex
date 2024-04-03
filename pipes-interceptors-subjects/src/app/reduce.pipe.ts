@@ -10,6 +10,6 @@ export class ReducePipe<T> implements PipeTransform {
     anitialValue: T
   ): unknown {
     // [1,2,3,4].reduce(callBackFn,0)
-    return array.reduce(callBackFn,anitialValue);
+    return array.reduce(callBackFn, anitialValue);
   }
 }
