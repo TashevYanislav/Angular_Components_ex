@@ -16,3 +16,8 @@
 </div>
 
 <router-outlet></router-outlet>
+
+<hr />
+
+<button (click)="reloadUsers()">Reload Users</button>
+{{ users$ | json }}

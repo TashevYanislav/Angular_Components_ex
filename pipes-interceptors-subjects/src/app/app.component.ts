@@ -28,6 +28,11 @@ export class AppComponent implements OnInit {
   }); // Clock time$ = interval(1000).pipe(map(() => new Date())); I ngOnInit(): void {} }
 
   ngOnInit(): void {
-    this.userService.loadUser().subscribe(console.log);
+    // this.userService.loadUsers().subscribe(console.log);
+  }
+
+  users$ = this.userService.usersObs$;
+  reloadUsers() {
+    this.userService.loadUsers();
   }
 }
